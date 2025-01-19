@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Webpage</title>
+    <style>
+        /* General styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            z-index: 1000;
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        /* Layout styles */
+        .container {
+            display: flex;
+            margin-top: 60px; /* Offset for fixed navbar */
+        }
+
+        .left-menu {
+            width: 200px;
+            background-color: #f4f4f4;
+            height: calc(100vh - 60px);
+            overflow-y: auto;
+            transition: width 0.3s;
+        }
+
+        .left-menu.collapsed {
+            width: 50px;
+        }
+
+        .left-menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .left-menu li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .left-menu button {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        .right-panel {
+            width: 200px;
+            background-color: #e4e4e4;
+            height: calc(100vh - 60px);
+            overflow-y: auto;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Responsive styles */
+        @media screen and (max-width: 768px) {
+            .left-menu {
+                display: none;
+            }
+
+            .right-panel {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <h1>Responsive Webpage</h1>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Left Menu -->
+        <div class="left-menu" id="left-menu">
+            <button onclick="toggleMenu()">Toggle Menu</button>
+            <ul>
+                <li>Menu Item 1</li>
+                <li>Menu Item 2</li>
+                <li>Menu Item 3</li>
+                <li>Menu Item 4</li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <h2>Main Content Area</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet varius mi, at convallis velit.</p>
+        </div>
+
+        <!-- Right Panel -->
+        <div class="right-panel">
+            <h3>Right Panel</h3>
+            <p>This is a side panel for additional content.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Your Company</p>
+    </footer>
+
+    <script>
+        // JavaScript to toggle the left menu
+        function toggleMenu() {
+            const menu = document.getElementById('left-menu');
+            menu.classList.toggle('collapsed');
+        }
+    </script>
+</body>
+</html>
